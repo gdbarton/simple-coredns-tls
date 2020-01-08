@@ -1,0 +1,23 @@
+version: "3"
+services:
+        forwarder:
+                image: "coredns/coredns"
+                ports:
+                        - "53:53/udp"
+                        - "53:53"
+                volumes:
+                        - "/etc/coredns/:/etc/coredns/"
+                command: -conf /etc/coredns/coreconfig-up
+                restart: always
+                container_name: coredns_up
+
+        listener:
+                image: "coredns/coredns"
+                ports:
+                        - "853:853"
+                volumes:
+                        - "/etc/coredns/:/etc/coredns/"
+                command: -conf /etc/coredns/coreconfig-down
+                restart: always
+                container_name: coredns_down
+

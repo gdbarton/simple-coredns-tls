@@ -1,0 +1,8 @@
+. {
+  forward . tls://9.9.9.9 tls://149.112.112.112 {
+    tls_servername dns.quad9.net
+    health_check 10s
+  }
+  cache 120
+}
+
