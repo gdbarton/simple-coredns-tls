@@ -1,9 +1,5 @@
 tls://.:853 {
-  tls cert.pem key.pem
-  forward . 192.168.0.2:53
-  log
-}
-https://.:443 {
+  tls /etc/coredns/cert.pem /etc/coredns/key.pem /etc/coredns/ca.pem
   forward . 192.168.0.2:53
   log
 }

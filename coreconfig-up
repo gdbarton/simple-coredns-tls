@@ -3,6 +3,6 @@
     tls_servername dns.quad9.net
     health_check 10s
   }
-  cache 120
+  cache 60
 }
 
