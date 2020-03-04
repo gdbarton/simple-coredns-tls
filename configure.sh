@@ -5,8 +5,8 @@
 
 # Prep work:
 mkdir -p /etc/coredns
-mkdir ./certs
-cd ./certs
+mkdir certs
+cd certs
 
 # Generate the CA and create a cert/key pair for the server:
 openssl genrsa 2048 > ca-key.pem
@@ -20,10 +20,6 @@ openssl rsa -in key.pem -out key.pem
 openssl x509 -req -in server-req.pem -days 3600 -CA ca.pem -CAkey ca-key.pem -set_serial 01 -out cert.pem
 
 # Move necessary files into /etc/coredns:
-cp ../coreconfig-up /etc/coredns/
-cp ../coreconfig-down /etc/coredns/
-cp key.pem /etc/coredns
-cp cert.pem /etc/coredns
-cp ca.pem /etc/coredns
+cp ../coreconfig* /etc/coredns/
+cp *.pem /etc/coredns
 
-cd ../
